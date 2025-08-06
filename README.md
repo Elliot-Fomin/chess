@@ -108,8 +108,3 @@ You can self-host your own if needed.
 
 Created by **Elliot Fomin**
 
----
-
-## 📬 Contact
-
-Feel free to reach out via GitHub issues or pull requests!
