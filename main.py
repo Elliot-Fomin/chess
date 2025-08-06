@@ -774,7 +774,7 @@ def online_sender(session, stop_event, send_q, site, server_ip):
 
 
 def main():
-    global opponent_ip, is_host, move_queue, pending_promotion_move, move_sound, polling_thread, sender_thread, poller_stop_event, opponent_move_queue, offer_queue, player_status_queue, send_queue, sender_stop_event # Access global state
+    global opponent_ip, is_host, move_queue, pending_promotion_move, move_sound, capture_sound, polling_thread, sender_thread, poller_stop_event, opponent_move_queue, offer_queue, player_status_queue, send_queue, sender_stop_event # Access global state
 
     pygame.init()
     pygame.font.init() # Ensure font module is initialized
@@ -799,7 +799,6 @@ def main():
     input_text = ''
     input_active = False
     display_ip_message = "" # To show host's IP
-    #site = "https://chess-server-5mll.onrender.com/"
     site = "https://chess-server-5mll.onrender.com/"
     game_state = "setup" # New initial state
 
@@ -815,12 +814,12 @@ def main():
             bottom_message = ""
             board = Board()
             selected_piece = None
-            turn = "W" # White always starts
+            turn = "W"
             board_states = [deepcopy(board.pieces)]
             fifty_move_rule = 0
-            promotion_handler = None # Initialize
+            promotion_handler = None
             gameover_handler = None
-            http_server = None # To hold the server instance if hosting
+            http_server = None 
             player_color = None
             last_move = None
             drawed = set([])
@@ -832,11 +831,11 @@ def main():
             play_again_active = False
             local_enter_pressed = False
 
-            screen.fill((30, 30, 30)) # Dark background
+            screen.fill((30, 30, 30))
             text_surface = setup_font.render(setup_message, True, (255, 255, 255))
             text_rect = text_surface.get_rect(center=(400, 150))
             screen.blit(text_surface, text_rect)
-            pygame.display.update() # Add display update to show changes
+            pygame.display.update() 
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
